@@ -23,7 +23,10 @@ public class FileShareController {
 
     @GetMapping("/")
     public ModelAndView showIndex(){
+        Iterable<FileShare> fileShares = fileShareService.findAll();
+
         ModelAndView modelAndView = new ModelAndView("/index");
+        modelAndView.addObject("fileShares", fileShares);
         return modelAndView;
     }
 

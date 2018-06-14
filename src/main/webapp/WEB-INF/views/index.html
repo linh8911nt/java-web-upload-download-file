@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+
+<head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Blog Home</title>
+
+</head>
+
+<body>
+<section layout:fragment="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <table class="table">
+                    <tr>
+                        <th>#</th>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Share</th>
+                        <th>Edit</th>
+                        <th>Delete</th>
+                        <th>Share By Email</th>
+                    </tr>
+                    <tr th:each="file : ${fileShares}">
+                        <td></td>
+                        <td th:text="${file.name}"></td>
+                        <td th:text="${file.description}"></td>
+                        <td>
+                            <th:block th:if="${file.status}">Public</th:block>
+                            <th:block th:if="${!file.status}">Private</th:block>
+                        </td>
+                        <td>
+                            <th:block th:if="${file.status}">Share</th:block>
+                            <th:block th:if="${!file.status}">UnShare</th:block>
+                        </td>
+                        <td>Edit</td>
+                        <td>Delete</td>
+                        <td>Share</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+
+</html>
