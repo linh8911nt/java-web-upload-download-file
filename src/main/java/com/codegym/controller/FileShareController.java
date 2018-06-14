@@ -49,7 +49,7 @@ public class FileShareController {
             fileShare.setName(fileShareForm.getName());
             fileShare.setDescription(fileShareForm.getDescription());
             fileShare.setFileUrl(randomName);
-            fileShare.setStatus(fileShareForm.isStatus());
+            fileShare.setStatus(fileShareForm.isShare());
 
             fileShareService.save(fileShare);
 

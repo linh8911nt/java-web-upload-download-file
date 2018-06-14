@@ -7,17 +7,17 @@ public class FileShareForm {
     private Long id;
     private String name;
     private String description;
-    private boolean status;
+    private boolean share;
     private MultipartFile file;
     private String fileUrl;
 
     public FileShareForm() {
     }
 
-    public FileShareForm(String name, String description, boolean status, MultipartFile file, String fileUrl) {
+    public FileShareForm(String name, String description, boolean share, MultipartFile file, String fileUrl) {
         this.name = name;
         this.description = description;
-        this.status = status;
+        this.share = share;
         this.file = file;
         this.fileUrl = fileUrl;
     }
@@ -46,12 +46,12 @@ public class FileShareForm {
         this.description = description;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean isShare() {
+        return share;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setShare(boolean share) {
+        this.share = share;
     }
 
     public MultipartFile getFile() {
