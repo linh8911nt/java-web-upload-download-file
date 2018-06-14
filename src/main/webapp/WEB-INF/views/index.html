@@ -35,14 +35,14 @@
                         <td th:text="${file.name}"></td>
                         <td th:text="${file.description}"></td>
                         <td>
-                            <th:block th:if="${file.status}">Public</th:block>
-                            <th:block th:if="${!file.status}">Private</th:block>
+                            <th:block th:if="${file.share}">Public</th:block>
+                            <th:block th:if="${!file.share}">Private</th:block>
                         </td>
                         <td>
-                            <th:block th:if="${file.status}">Share</th:block>
-                            <th:block th:if="${!file.status}">UnShare</th:block>
+                            <th:block th:if="${file.share}">Share</th:block>
+                            <th:block th:if="${!file.share}">UnShare</th:block>
                         </td>
-                        <td>Edit</td>
+                        <td><a th:href="@{/__${file.id}__/edit-file}">Edit</a></td>
                         <td>Delete</td>
                         <td>Share</td>
                     </tr>

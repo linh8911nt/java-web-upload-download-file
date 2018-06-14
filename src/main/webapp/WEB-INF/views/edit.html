@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit File</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container">
+        <h3>Edit File</h3>
+        <th:block th:if="${message}">
+            <p th:text="${message}"></p>
+        </th:block>
+        <form th:action="@{/__${fileShareForm.id}__/edit-file}" method="post" th:object="${fileShareForm}" enctype="multipart/form-data">
+            <input type="hidden" name="id" th:field="*{id}">
+            <div class="form-group col-md-4">
+                <label for="file-upload">File:</label>
+                <input type="file" id="file-upload" class="form-control" th:field="*{file}" th:text="${fileShareForm.fileUrl}">
+            </div>
+            <div class="form-group">
+                <label for="file-name">Name:</label>
+                <input type="text" id="file-name" class="form-control" th:field="*{name}">
+            </div>
+            <div class="form-group">
+                <label for="file-description">Description:</label>
+                <input type="text" id="file-description" class="form-control" th:field="*{description}">
+            </div>
+            <div class="form-group row">
+                <div class="col-md-2">
+                    <label class="radio-button">
+                        <input type="radio" class="form-control" name="isShare" value="1"
+                               th:field="*{share}"/>Share</label>
+
+                    <label class="radio-button">
+                        <input type="radio" class="form-control" name="isShare" value="0"
+                               th:field="*{share}"/>Private</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="btn-submit"></label>
+                <button class="btn btn-primary" id="btn-submit" type="submit">Update</button>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

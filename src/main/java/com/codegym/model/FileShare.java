@@ -12,16 +12,16 @@ public class FileShare {
 
     private String name;
     private String description;
-    private boolean status;
+    private boolean isShare;
     private String fileUrl;
 
     public FileShare() {
     }
 
-    public FileShare(String name, String description, boolean status, String fileUrl) {
+    public FileShare(String name, String description, boolean isShare, String fileUrl) {
         this.name = name;
         this.description = description;
-        this.status = status;
+        this.isShare = isShare;
         this.fileUrl = fileUrl;
     }
 
@@ -57,11 +57,11 @@ public class FileShare {
         this.description = description;
     }
 
-    public boolean isStatus() {
-        return status;
+    public boolean isShare() {
+        return isShare;
     }
 
-    public void setStatus(boolean status) {
-        this.status = status;
+    public void setShare(boolean share) {
+        this.isShare = share;
     }
 }
