@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layout.html}">
+<head>
+    <meta charset="UTF-8">
+    <title>Share File</title>
+</head>
+<body>
+<section layout:fragment="content">
+    <div class="container">
+        <h3>Edit File</h3>
+        <th:block th:if="${message}">
+            <p th:text="${message}"></p>
+        </th:block>
+        <form th:action="@{/__${id}__/sendEmail.do}" method="post" enctype="multipart/form-data">
+
+            <div class="form-group">
+                <label for="file-description">Email:</label>
+                <input type="text" id="file-description" class="form-control" name="email">
+            </div>
+            <div class="form-group">
+                <label for="btn-submit"></label>
+                <button class="btn btn-primary" id="btn-submit" type="submit">Send</button>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>
